@@ -1,111 +1,92 @@
- Align(
-            alignment: Alignment.bottomLeft,
-            child: Padding(
-              padding: EdgeInsets.only(left: 32, bottom: (size.height * 0.5) - (75 / 2)),
-              child: Card(
-                elevation: 4,
-                margin: EdgeInsets.all(0),
-                clipBehavior: Clip.antiAlias,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(15),
-                  ),
-                ),
-                child: Container(
-                  width: 75,
-                  height: 75,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage(book.author.image),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
+
+
+
+      List<Widget> buildNavigationItems() {
+        List<Widget> list = [];
+        for (var navigationItem in navigationItems) {
+          list.add(buildNavigationItem(navigationItem));
+        }
+        return list;
+      }
+
+      Widget buildNavigationItem(NavigationItem item) {
+        return GestureDetector(
+          onTap: () {
+            setState(() {
+              selectedItem = item;
+            });
+          },
+          child: Container(
+            width: 50,
+            child: Center(
+              child: Icon(
+                item.iconData,
+                color: selectedItem == item ? Color(0xffFFD700) : Colors.grey[400],
+                size: 28,
               ),
             ),
           ),
-
-
-
-Container(
-                          width: size.width / 2 - 44,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(15),
-                            ),
-
-                            border: Border.all(
-                              color: Colors.grey,
-                              width: 1,
-                            ),
-                          ),
-                          child: Center(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  "Get a copy",
-                                  style: TextStyle(
-                                    fontSize: 15,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 8,
-                                ),
-                                Icon(
-                                  Icons.content_copy,
-                                  color: Color(0xffFFD700),
-                                  size: 20,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-
-
-
-Container(
-                          width: size.width / 2 - 44,
-                          decoration: BoxDecoration(
-                            color: Color(0xffFFD700),
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(15),
-                            ),
-
-                          ),
-                          child: Center(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  "Want to read",
-                                  style: TextStyle(
-                                    fontSize: 15,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 8,
-                                ),
-                                Icon(
-                                  Icons.keyboard_arrow_down,
-                                  color: Colors.white,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
+        );
+      }
+    }
 
 
 
 
-Icon(
 
-          Icons.sort,
-          color: Color(0xffFFD700),
-          size: 28,
+
+
+child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: buildNavigationItems(),
         ),
+
+
+
+
+
+
+
+
+bottomNavigationBar: Container(
+        height: 70,
+        decoration: BoxDecoration(
+          color: Colors.black,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(0),
+            topRight: Radius.circular(0),
+          ),
+        ),
+
+      ),
+
+
+
+
+      BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            backgroundColor: Colors.black,
+            unselectedItemColor: Colors.white,
+            selectedItemColor: Colors.white,
+            showUnselectedLabels: false,
+            showSelectedLabels: false,
+            items: const [
+
+              BottomNavigationBarItem(
+                icon: Icon(Icons.home),
+                label: 'Home',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.favorite_outline),
+                label: 'Favorites',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.play_circle_outline),
+                label: 'Play',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.people_outline),
+                label: 'Profile',
+              ),
+            ],
+          );

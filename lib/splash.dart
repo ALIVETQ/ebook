@@ -27,11 +27,11 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Container(
         color: const Color(0xff030303),
         child: const Center(
-          child: Text('E book',
-            style: TextStyle(
-                fontSize: 34,
-                fontWeight: FontWeight.w700,
-                color: Color(0xffFFD700)),
+          child: CircleAvatar(
+            radius: 140,
+            backgroundImage: AssetImage(
+              "images/tan2004.png",
+            ),
           ),
         ),
       ),

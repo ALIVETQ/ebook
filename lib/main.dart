@@ -1,3 +1,4 @@
+import 'package:ebook/profile_page.dart';
 import 'package:ebook/signup.dart';
 import 'package:ebook/splash.dart';
 

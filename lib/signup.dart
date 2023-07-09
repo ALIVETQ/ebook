@@ -25,25 +25,28 @@ class _signupscreenState extends State<signupscreen> {
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
             CircleAvatar(
-              radius: 120,
+              radius: 140,
               backgroundImage: AssetImage(
-                "images/tan22.jpg",
+                "images/tan2004.png",
               ),
             ),
+
             Padding(
               padding: const EdgeInsets.only(
                 top: 25,
                 bottom: 20,
               ),
               child: const Text(
-                'signin now ',
-                style: TextStyle(color: Colors.white),
+                'SignUp Now ',
+                style: TextStyle(color: Colors.white,
+                fontSize: 22),
               ),
-            ),
-            const Text(
-              'please enter the details below',
-              style: TextStyle(color: Colors.white),
-            ),
+            ), const Text(
+                  'To  be  a  part  of  ASPER ',
+                  style: TextStyle(color: Colors.white,
+                  fontSize: 16),
+                ),
+
             const SizedBox(
               height: 20,
             ),
@@ -55,10 +58,14 @@ class _signupscreenState extends State<signupscreen> {
               child: Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-                child: TextFormField(
+                child: TextFormField(style: TextStyle(
+                    color: Colors.black
+                ),
                   decoration: const InputDecoration(
                     border: InputBorder.none,
                     hintText: 'Username',
+                      hintStyle: TextStyle(color: Colors.black45)
+
                   ),
                 ),
               ),
@@ -74,18 +81,22 @@ class _signupscreenState extends State<signupscreen> {
               child: Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-                child: TextFormField(
+                child: TextFormField(style: TextStyle(
+                  color: Colors.black
+                ),
                   obscureText: true,
                   decoration: const InputDecoration(
                     border: InputBorder.none,
                     hintText: ' Your Password ',
+                  hintStyle: TextStyle(color: Colors.black45)
+
                   ),
                 ),
               ),
             ),
                 Padding(
                   padding: const EdgeInsets.only(
-                    top: 30,
+                    top: 25,
                     bottom: 20,
                   ),
                   child: Align(
@@ -99,7 +110,7 @@ class _signupscreenState extends State<signupscreen> {
                       },
                       child: const Text(
                         'Login as a guest',
-                        style: TextStyle(color: Colors.redAccent,fontWeight: FontWeight.w700,fontSize: 16),
+                        style: TextStyle(color: Colors.red,fontSize: 14),
                       ),
                     ),
                   ),
@@ -114,14 +125,15 @@ class _signupscreenState extends State<signupscreen> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(100),
                     ),
-                    color: Colors.lime,
+                    color: Color(0xffFFD700),
                     onPressed: () {},
                     child: const Padding(
                       padding: EdgeInsets.all(10.0),
-                      child: Text('SIGN UP'),
+                      child: Text('SIGN UP',style: TextStyle(color: Colors.black
+                      ),
                     ),
                   ),
-                )
+                ),)
               ],
             ),
             const Spacer(),

@@ -1,7 +1,9 @@
+import 'package:ebook/search.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'bookdetail.dart';
+
 import 'data.dart';
 import 'drawer.dart';
 
@@ -37,22 +39,27 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         backgroundColor: Colors.black,
         elevation: 0,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => drawer()));
-          },
-          icon: Icon(Icons.sort),
+        leading: Icon(
+          ///onPressed: () {
+          ///  Navigator.push(
+           ///     context, MaterialPageRoute(builder: (context) => drawer()));
+         /// },
+           Icons.sort,
         ),
         actions: [
           Padding(
             padding: EdgeInsets.only(
               right: 16,
             ),
-            child: Icon(
-              Icons.search,
+            child: IconButton(
+              icon: Icon(Icons.search),
               color: Colors.grey[400],
-              size: 28,
+             onPressed: (){
+               Navigator.push(
+                   context,
+                   MaterialPageRoute(
+                       builder: (context) => Search()));
+             },
             ),
           ),
         ],
@@ -160,15 +167,15 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
         ],
+
       ),
+      drawer: drawer(),
+
       bottomNavigationBar: Container(
         height: 70,
         decoration: BoxDecoration(
           color: Colors.black,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(0),
-            topRight: Radius.circular(0),
-          ),
+
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -177,6 +184,11 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+
+
+
+
+
 
   List<Widget> buildFilters() {
     List<Widget> list = [];
@@ -244,7 +256,7 @@ class _HomeScreenState extends State<HomeScreen> {
       },
       child: Container(
         margin:
-            EdgeInsets.only(right: 32, left: index == 0 ? 16 : 0, bottom: 8),
+        EdgeInsets.only(right: 32, left: index == 0 ? 16 : 0, bottom: 8),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
@@ -252,7 +264,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Expanded(
               child: Container(
                 decoration: BoxDecoration(),
-                margin: EdgeInsets.only(
+                margin: const EdgeInsets.only(
                   bottom: 16,
                   top: 24,
                 ),
@@ -267,14 +279,14 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             Text(
               book.title,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
               ),
             ),
             Text(
               book.author.fullname,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 14,
                 color: Colors.grey,
                 fontWeight: FontWeight.bold,
@@ -370,6 +382,8 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+
+
   List<Widget> buildNavigationItems() {
     List<Widget> list = [];
     for (var navigationItem in navigationItems) {
@@ -386,6 +400,7 @@ class _HomeScreenState extends State<HomeScreen> {
         });
       },
       child: Container(
+
         width: 50,
         child: Center(
           child: Icon(
@@ -398,3 +413,5 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+
+

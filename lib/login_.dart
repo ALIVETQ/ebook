@@ -1,6 +1,8 @@
 import 'package:ebook/signup.dart';
 import 'package:flutter/material.dart';
 
+import 'drawer.dart';
+
 class loginscreen extends StatefulWidget {
   const loginscreen({super.key});
 
@@ -23,9 +25,9 @@ class _loginscreenState extends State<loginscreen> {
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
             CircleAvatar(
-              radius: 120,
+              radius: 140,
               backgroundImage: AssetImage(
-                "images/tan22.jpg",
+                "images/tan2004.png",
               ),
             ),
             Padding(
@@ -34,13 +36,15 @@ class _loginscreenState extends State<loginscreen> {
                 bottom: 20,
               ),
               child: const Text(
-                'Login now ',
-                style: TextStyle(color: Colors.white),
+                'LogIn Now ',
+                style: TextStyle(color: Colors.white,
+                    fontSize: 22),
               ),
             ),
             const Text(
-              'please enter the details below',
-              style: TextStyle(color: Colors.white),
+              'To enhance your journey with ASPER',
+              style: TextStyle(color: Colors.white,
+                  fontSize: 16),
             ),
             const SizedBox(
               height: 20,
@@ -53,10 +57,12 @@ class _loginscreenState extends State<loginscreen> {
               child: Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-                child: TextFormField(
+                child: TextFormField(style: TextStyle(
+                    color: Colors.black
+                ),
                   decoration: const InputDecoration(
                     border: InputBorder.none,
-                    hintText: 'Username',
+                    hintText: 'Username', hintStyle: TextStyle(color: Colors.black45)
                   ),
                 ),
               ),
@@ -72,11 +78,14 @@ class _loginscreenState extends State<loginscreen> {
               child: Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-                child: TextFormField(
+                child: TextFormField(style: TextStyle(
+                    color: Colors.black
+                ),
                   obscureText: true,
                   decoration: const InputDecoration(
                     border: InputBorder.none,
                     hintText: 'Password',
+                      hintStyle: TextStyle(color: Colors.black45)
                   ),
                 ),
               ),
@@ -92,7 +101,7 @@ class _loginscreenState extends State<loginscreen> {
                   onTap: () {},
                   child: const Text(
                     'forgot password',
-                    style: TextStyle(color: Colors.redAccent),
+                    style: TextStyle(color: Colors.red),
                   ),
                 ),
               ),
@@ -105,13 +114,14 @@ class _loginscreenState extends State<loginscreen> {
                 Expanded(
                   child: MaterialButton(
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(100),
+                      borderRadius: BorderRadius.circular(150),
                     ),
-                    color: Colors.lime,
+                    color: Color(0xffFFD700),
                     onPressed: () {},
                     child: const Padding(
                       padding: EdgeInsets.all(10.0),
-                      child: Text('LOGIN'),
+                      child: Text('LOGIN',style: TextStyle(color: Colors.black),
+                      ),
                     ),
                   ),
                 )
@@ -143,6 +153,7 @@ class _loginscreenState extends State<loginscreen> {
           ]),
         ),
       ),
+
     );
   }
 }
