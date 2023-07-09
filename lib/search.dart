@@ -11,7 +11,7 @@ class Search extends StatelessWidget {
         decoration: InputDecoration(
           isDense: true,
           filled: true,
-          fillColor: Colors.white,
+          fillColor: Colors.black,
           hintText: 'Search',
           hintStyle: Theme.of(context)
               .textTheme

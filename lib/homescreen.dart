@@ -6,6 +6,8 @@ import 'bookdetail.dart';
 
 import 'data.dart';
 import 'drawer.dart';
+import 'fav/fav_screen.dart';
+import 'main.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -15,6 +17,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  int currentPage = 0;
   List<Filter> filters = getFilterList();
   late Filter selectedFilter;
 
@@ -36,16 +39,11 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor:Colors.black54 ,
       appBar: AppBar(
         backgroundColor: Colors.black,
         elevation: 0,
-        leading: Icon(
-          ///onPressed: () {
-          ///  Navigator.push(
-           ///     context, MaterialPageRoute(builder: (context) => drawer()));
-         /// },
-           Icons.sort,
-        ),
+
         actions: [
           Padding(
             padding: EdgeInsets.only(
@@ -54,12 +52,12 @@ class _HomeScreenState extends State<HomeScreen> {
             child: IconButton(
               icon: Icon(Icons.search),
               color: Colors.grey[400],
-             onPressed: (){
-               Navigator.push(
-                   context,
-                   MaterialPageRoute(
-                       builder: (context) => Search()));
-             },
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Search()));
+              },
             ),
           ),
         ],
@@ -133,12 +131,19 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       Row(
                         children: [
-                          Text(
-                            "Show all",
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xffFFD700),
+                          GestureDetector(
+                            onTap: (){
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => Favouritescreen()));
+                            },
+                            child: Text(
+                              "Show all",
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
                             ),
                           ),
                           SizedBox(
@@ -182,12 +187,10 @@ class _HomeScreenState extends State<HomeScreen> {
           children: buildNavigationItems(),
         ),
       ),
+
+
     );
   }
-
-
-
-
 
 
   List<Widget> buildFilters() {
@@ -383,8 +386,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
 
-
-  List<Widget> buildNavigationItems() {
+ List<Widget> buildNavigationItems() {
     List<Widget> list = [];
     for (var navigationItem in navigationItems) {
       list.add(buildNavigationItem(navigationItem));

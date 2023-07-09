@@ -90,3 +90,121 @@ bottomNavigationBar: Container(
               ),
             ],
           );
+
+
+          Drawer(
+                  backgroundColor: Color(0xFFebeaee),
+                  child: ListView(
+                  padding: EdgeInsets.zero,
+                  children: [
+                    UserAccountsDrawerHeader(
+                      decoration: BoxDecoration(
+                        color: Color(0xFFD6D6D6)
+                      ),
+                        accountName: Text("User Name"),
+                        accountEmail: Text("abc68jdh@gmail.com"),
+                        currentAccountPicture : CircleAvatar(
+                          child: Icon(Icons.account_circle_outlined),
+                        )
+                    ),
+                    ListTile(
+                      leading: Icon(CupertinoIcons.plus_app),
+                      title: Text('Cicks Plus'),
+                    ),
+                    ListTile(
+                      leading: Icon(CupertinoIcons.bitcoin),
+                      title: Text('Your coins'),
+                    ),
+                    ListTile(
+                      leading: Icon(CupertinoIcons.cube_box),
+                      title: Text('Orders'),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.card_giftcard_rounded),
+                      title: Text('Coupons'),
+                    ),
+                    Divider(),
+                    ListTile(
+                      leading: Icon(CupertinoIcons.headphones),
+                      title: Text('Help Centre'),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.note_alt_outlined),
+                      title: Text('Reviews'),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.sticky_note_2_outlined),
+                      title: Text('Terms and Policies'),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.question_mark_sharp),
+                      title: Text('Browse FAQs'),
+                    ),
+                    Divider(),
+                    ListTile(
+                      leading: Icon(Icons.logout),
+                      title: Text('Log out'),
+                      onTap: (){
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Loginpage()));
+                      },
+                    ),
+
+
+
+
+
+
+  Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.black,
+              ),
+              child: Text(
+                'Drawer Header',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                ),
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text('Home'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.settings),
+              title: Text('Settings'),
+              onTap: () {
+
+                Navigator.pop(context);
+              },
+
+            ),
+
+            ListTile(
+              leading: Icon(Icons.person),
+              title: Text('Your Profile'),
+              onTap: () {
+
+               /// Navigator.push(context);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ProfileScreen()));
+              },
+
+            ),
+
+
+          ],
+        ),
+
+      );

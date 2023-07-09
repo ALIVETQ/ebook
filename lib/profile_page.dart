@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
 
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  int currentPage = 2;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

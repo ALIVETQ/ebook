@@ -29,13 +29,14 @@ class Book {
 
 List<Book> getBookList() {
   return <Book>[
+
     Book(
       "the five point someone",
       "The newest suspense novel from the authors behind The Wife Between Us introduces us to Jessica Ferris. Jess just wants to make a little extra cash when she decides to participate in a study on ethics with the mysterious Dr. Lydia Shields. The premise seems simple: Answer a few questions, then collect. But soon the doctor’s questions turn from simple survey queries to something much more sinister—leaving Jess unsure of whom she can trust. An early contender for thriller of the year.",
       Author(
         "chetan bhagat",
         90,
-        "images/authors/tan233.jpg",
+        "images/books/tan233.jpg",
       ),
       "images/books/tan3365.jpg",
     ),

@@ -109,7 +109,7 @@ class _signupscreenState extends State<signupscreen> {
                                 builder: (context) => HomeScreen()));
                       },
                       child: const Text(
-                        'Login as a guest',
+                        'Click to view my App',
                         style: TextStyle(color: Colors.red,fontSize: 14),
                       ),
                     ),
